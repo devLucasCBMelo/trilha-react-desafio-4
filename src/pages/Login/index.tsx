@@ -18,15 +18,16 @@ const schema = yup
   .required();
 
 const Login = () => {
+
   const {
     control,
     formState: { errors, isValid },
   } = useForm<IFormLogin>({
     resolver: yupResolver(schema),
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues,
-    reValidateMode: "onChange",
   });
+
 
   return (
     <Container>
@@ -49,7 +50,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar" disabled={!isValid}/>
         </Column>
       </LoginContainer>
     </Container>

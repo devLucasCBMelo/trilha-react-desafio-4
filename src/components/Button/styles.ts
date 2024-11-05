@@ -15,4 +15,10 @@ export const ButtonContainer = styled.button<IButtonProps>`
         opacity: 0.6;
         cursor:pointer;
     }
+
+    &:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
 `
